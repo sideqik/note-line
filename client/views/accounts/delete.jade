@@ -1,0 +1,11 @@
+template(name='delete_profile')
+  .container
+    .row
+      .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+        h1 Delete Account
+        form#delete-profile
+          h3 ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT?
+          br
+          .pull-right
+            a.btn.btn-success(href='/') No
+            input#delete-profile-btn.btn.btn-danger(type='submit' value='Yes' data-loading-text='Deleting profile...')

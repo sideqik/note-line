@@ -1,0 +1,330 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,300,700,400);
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%);
+@gray-dark:              lighten(@gray-base, 20%);
+@gray:                   lighten(@gray-base, 33.5%);
+@gray-light:             #4E5D6C;
+@gray-lighter:           #EBEBEB;
+@brand-primary:         #DF691A;
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+
+body {
+  font-family: "Roboto";
+}
+
+.center-all {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 4em;
+  }
+}
+
+.playlist-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.playlist {
+  align-items: center;
+  background-color: lightgrey;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 150px;
+  &:hover {
+    cursor: pointer;
+    .actions {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  .actions {
+    align-items: stretch;
+    bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    left: 0;
+    justify-content: stretch;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s ease;
+    width: 100%;
+    z-index: -1;
+    & > div {
+      background-color: #111111;
+      display: block;
+      font-size: 25px;
+      padding: 20px 0;
+      transition: background-color 0.4s ease;
+      &.play {
+        width: 100%;
+        &:hover {
+          background-color: @brand-success;
+        }
+      }
+      &.edit {
+        width: 50%;
+        &:hover {
+          background-color: @brand-info;
+        }
+      }
+      &.delete {
+        width: 50%;
+        &:hover {
+          background-color: @brand-danger;
+        }
+      }
+    }
+  }
+}
+
+#new-playlist {
+  font-size: 3em;
+}
+
+.playlist-modal {
+  .modal-dialog {
+    max-width: 100%;
+  }
+}
+
+.player {
+  .controls {
+    display: flex;
+    font-size: 1.25em;
+    justify-content: space-around;
+    i {
+      color: silver;
+      transition: color 0.4s ease;
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.song {
+  margin-bottom: 10px;
+}
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-icon {
+  background-color: @gray-light;
+  margin: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.icon {
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.33);
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    padding: 15px;
+    background-color: @gray-light;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+  .room-name {
+    display: flex;
+    justify-content: center;
+  }
+  .dj-slot-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+  }
+  .dj-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: @gray-light;
+    border-radius: 100%;
+    font-size: 3em;
+    margin: 15px;
+  }
+  .play-room {
+    font-size: 5em;
+    padding: 15px;
+    transition: text-shadow 0.2s ease;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
+    &:hover {
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+  }
+  .play-next {
+    font-size: 5em;
+    padding: 15px;
+    transition: text-shadow 0.2s ease;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
+    &:hover {
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.modal-list {
+  display: flex;
+  flex-direction: column;
+  .list-item {
+    transition: box-shadow 0.2s ease;
+    background-color: @gray-lighter;
+    color: @gray-base;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.33);
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.player-modal, .player-panel {
+  .modal-header, .panel-heading {
+    background: #111111;
+    padding: 0;
+  }
+  .current-song-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 15px;
+  }
+}
+
+.music-bars-wrapper.active > .music-bars > .bar {
+  animation: sound 0ms -800ms linear infinite alternate;
+  @keyframes sound {
+    0% {
+      opacity: 0.35;
+      height: 3px;
+    }
+    100% {
+      opacity: 1;
+      height: 28px;
+    }
+  }
+}
+
+.music-bars-wrapper:not(.active) > .music-bars > .bar {
+  animation: sound-stopped 2500ms ease-out;
+  @keyframes sound-stopped {
+    0% {
+      opacity: 0.75;
+      height: 15px;
+    }
+    100% {
+      opacity: 0.25;
+      height: 5px;
+    }
+  }
+}
+
+.music-bars-wrapper {
+  display: flex;
+  & > .music-bars {
+    height: 30px;
+    float: left;
+    position: relative;
+    width: 25%;
+    & > .bar {
+      background: @brand-primary;
+      bottom: 0;
+      height: 5px;
+      opacity: 0.25;
+      position: absolute;
+      width: 10%;
+      &:nth-child(1) {
+        left: 0;
+        animation-duration: 474ms;
+      }
+      &:nth-child(2) {
+        left: 10%;
+        animation-duration: 433ms;
+      }
+      &:nth-child(3) {
+        left: 20%;
+        animation-duration: 407ms;
+      }
+      &:nth-child(4) {
+        left: 30%;
+        animation-duration: 458ms;
+      }
+      &:nth-child(5) {
+        left: 40%;
+        animation-duration: 400ms;
+      }
+      &:nth-child(6) {
+        left: 50%;
+        animation-duration: 427ms;
+      }
+      &:nth-child(7) {
+        left: 60%;
+        animation-duration: 441ms;
+      }
+      &:nth-child(8) {
+        left: 70%;
+        animation-duration: 419ms;
+      }
+      &:nth-child(9) {
+        left: 80%;
+        animation-duration: 487ms;
+      }
+      &:nth-child(10) {
+        left: 90%;
+        animation-duration: 442ms;
+      }
+    }
+  }
+}
+
+.progress {
+  background-color: #343F49;
+  box-shadow: none;
+  height: 5px;
+  margin-bottom: -1px;
+
+  .progress-bar {
+    background-color: #C5C5C5;
+    border-right: 4px solid #ddd;
+  }
+}

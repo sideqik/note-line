@@ -1,0 +1,23 @@
+template(name='signup')
+  .container
+    .row
+      .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+        .text-center
+          img(src='wide-logo.png' width='50%', height='auto')
+        h1 Sign Up
+        form#signup
+          h3 PROFILE
+          .form-group
+            label(for='name') Name
+            input.form-control(name='profile[name]')
+          hr/
+          h3 ACCOUNT
+          .form-group
+            label(for='signup-username') Username
+            input.form-control(name='username')
+          .form-group
+            label(for='signup-password') Password
+            input.form-control(name='password', type='password')
+          .pull-right
+            a.btn.btn-link(href='/sign-in') Return to Sign In
+            input#signup-btn.btn.btn-success(type='submit' value='Create Account' data-loading-text='Creating account...')

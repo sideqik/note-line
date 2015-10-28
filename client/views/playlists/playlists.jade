@@ -1,0 +1,9 @@
+template(name='playlists')
+  #playlists-container
+    .playlists
+      h1 Playlists
+      .playlist-container
+        +new_playlist_icon
+        each playlists
+          +playlist_icon
+        +playlist_modal

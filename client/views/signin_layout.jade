@@ -1,0 +1,15 @@
+template(name='signInLayout')
+  head
+    title Sign In & Up
+    link(href='http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type='text/css')
+    meta(name='viewport' content="width=device-width, initial-scale=1")
+    script.
+      (function() {var s=document.createElement('script');
+        s.type='text/javascript';s.async=true;
+        s.src=('https:'==document.location.protocol?'https':'http') +
+        '://noteline.groovehq.com/widgets/64548cae-32d5-4f5d-a128-a22d8813396e/ticket.js'; var q = document.getElementsByTagName('script')[0];q.parentNode.insertBefore(s, q);})();
+  body
+    .container
+      | {{> yield}}
+  footer
+    script(src='script.js')

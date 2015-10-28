@@ -1,0 +1,10 @@
+template(name='playlist_icon')
+  .playlist.icon(data-playlist-id="#{_id}")
+    .name #{name}
+    .actions
+      .play.btn-success
+        i.fa.fa-play
+      .edit.btn-warning
+        i.fa.fa-pencil
+      .delete.btn-danger
+        i.fa.fa-trash-o

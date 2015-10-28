@@ -1,0 +1,55 @@
+template(name='rooms')
+  .rooms-container
+    +new_room_icon
+    each rooms
+      a.icon.room-icon(href="/rooms/#{_id}") #{name}
+
+template(name='new_room_icon')
+  .icon.room-icon.create-new-room Create new room
+
+template(name='new_room_modal')
+  .new-room-modal(data-playlist-id="#{playlist._id}")
+    .modal.fade
+      .row
+        .modal-dialog
+          form.modal-content
+            .modal-header
+              .modal-title
+                .current-song-title Create New Room
+            .modal-body
+              label(for='new-room-name') Room Name
+              input.form-control.new-room-name(name='new-room-name')
+            .modal-footer
+              .button.btn.btn-default(type="button", data-dismiss="modal") Close
+              input.button.btn.btn-primary(type="submit", value="Create")
+
+
+template(name='room')
+  .room(data-room-id="#{_id}")
+    .room-name
+      h1 #{name}
+    .play-room
+      .fa.fa-play
+    .play-next
+      .fa.fa-forward
+    .dj-slot-container
+      each playlists
+        +playlist_icon
+      each dj_slot
+        .dj-slot.icon
+          .dj-name
+            .fa.fa-plus
+
+template(name='choose_playlist_modal')
+  .choose-playlist-modal(data-room-id="#{room._id}")
+    .modal.fade
+      .row
+        .modal-dialog
+          .modal-content
+            .modal-header
+              .modal-title
+                .current-song-title Which playlist would you like to DJ with?
+            .modal-body
+              .modal-list
+                each playlists
+                  .list-item.choose-playlist(data-playlist-id="#{_id}") #{name}

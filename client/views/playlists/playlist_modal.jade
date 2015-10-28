@@ -1,0 +1,26 @@
+template(name='playlist_modal')
+  .playlist-modal.playlist-container(data-playlist-id="#{playlist._id}")
+    .modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            .modal-title
+              h2.playlist-name #{playlist.name}
+          .modal-body
+            each songs
+              .row.song-container(data-song-id="#{_id}")
+                .col-xs-8.col-sm-9.song-title #{youtube.title}
+                .col-xs-4.col-sm-3
+                  button.btn.btn-default.delete-song.pull-right(type="button")
+                    i.fa.fa-times
+                  button.btn.btn-default.play-song.pull-right(type="button")
+                    i.fa.fa-play
+            br
+            .new-song Enter the URL of a YouTube video
+          .modal-footer
+            .row
+              .col-xs-6.col-md-3
+                .button.btn.btn-default.delete-playlist.pull-left(type="button", data-dismiss="modal") Delete Playlist
+              .col-md-6.hidden-xs
+              .col-xs-6.col-md-3
+                .button.btn.btn-default.pull-right(type="button", data-dismiss="modal") Close

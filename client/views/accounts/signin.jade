@@ -1,0 +1,15 @@
+template(name='signin')
+  .container
+    .row
+      .col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+        img(src='wide-logo.png' width='100%', height='auto')
+        form#signin
+          .form-group
+            label(for='username') Username
+            input.form-control(name='username')
+          .form-group
+            label(for='password') Password
+            input.form-control(name='password', type='password')
+          .pull-left Don't have an account? <a href="/sign-up">Make one!</a>
+          .pull-right
+            input#signin-btn.btn.btn-success(type='submit' value='Sign In' data-loading-text='Signing you in...')

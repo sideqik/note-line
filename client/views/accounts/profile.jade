@@ -1,0 +1,16 @@
+template(name='profile')
+  .row
+    .col-xs-12.col-sm-11.col-md-10.col-lg-9
+      h1 Edit Profile
+      form#profile
+        h3 PROFILE
+        .form-group
+          label(for='name') Name
+          input.form-control(name='profile[name]' value="#{currentUser.profile.name}")
+        .form-group
+          label(for='name') Email
+          input#email-field.form-control(name='emails')
+        br
+        .pull-right
+          a.btn.btn-danger(href='delete-profile') Delete Account
+          input#profile-btn.btn.btn-success(type='submit' value='Update Profile' data-loading-text='Updating profile...')

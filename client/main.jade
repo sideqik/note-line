@@ -1,0 +1,52 @@
+template(name='layout')
+  #player.hidden
+  .navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(data-target='#navbar-collapse' data-toggle='collapse')
+          span.sr-only Toggle Navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='/') NoteLine
+      .collapse.navbar-collapse#navbar-collapse
+        +navLinks
+  .container-fluid
+    .col-sm-3
+      .panel.panel-default.player-panel
+        .panel-heading
+          .current-song-title Nothing Playing
+          +music_bars
+          .progress
+            .progress-bar(style = "width: 0%;")
+        .panel-body
+          +player
+      .panel.panel-default
+        .panel-heading 
+          h3 Queue
+        .panel-body
+          p When you play a playlist, your queue will appear here.
+    .col-sm-9
+      | {{> yield}}
+  footer
+    script#groove-hq.
+      (function() {var s=document.createElement('script');
+        s.type='text/javascript';s.async=true;
+        s.src=('https:'==document.location.protocol?'https':'http') +
+        '://noteline.groovehq.com/widgets/64548cae-32d5-4f5d-a128-a22d8813396e/ticket.js'; var q = document.getElementsByTagName('script')[0];q.parentNode.insertBefore(s, q);})();
+
+template(name='navLinks')
+  ul.nav.navbar-nav
+    li(class="#{if Iron.Location.get().path == '/playlists' then 'active'}")
+      a(href='/') Playlists
+    li(class="#{if Iron.Location.get().path == '/rooms' then 'active'}")
+      a(href='/rooms') Rooms
+    li(class="#{if Iron.Location.get().path == '/profile' or '/delete-profile' then 'active'}")
+      a(href='/profile') Profile
+  ul.nav.navbar-nav.navbar-right
+    if currentUser
+      li
+        a(href='/sign-out') Sign Out
+    else
+      li(class="#{activeIfTemplateIs 'signin'}")
+        a(href='/sign-in') Sign In
